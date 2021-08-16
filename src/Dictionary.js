@@ -2,20 +2,33 @@ import React, {useState} from "react";
 import axios from "axios";
 import "./Dictionary.css";
 import Results from "./Results";
+import Photos from "./Photos";
 
 
 export default function Dictionary(props){
     let [keyword, setKeyword] = useState(props.defaultKeyword);
     let [results, setResults] = useState(null);
     let [loaded, setLoaded] = useState(false);
+    let [photos, setPhotos] = useState(null);
 
-    function handleResponse(response){
+    function handleDictionaryResponse(response){
         setResults(response.data[0]);
     }
+
+    function handlePhotosResponse(response){
+        setPhotos(response.data.photos);
+    }
+
     function search(){
         //Documentation: https://dictionaryapi.dev/
         let apiUrl= `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
-        axios.get(apiUrl).then(handleResponse);
+        axios.get(apiUrl).then(handleDictionaryResponse);
+
+        let pexelsApiKey=`563492ad6f9170000100000147ea781985b948f4b99ee97577c6d470`;
+        let header={ Authorization: `Bearer ${pexelsApiKey}`};
+        let pexelsApiUrl=`https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
+
+        axios.get(pexelsApiUrl, {headers: header}).then(handlePhotosResponse);
     }
 
     function handleSubmit(event){
@@ -32,17 +45,17 @@ export default function Dictionary(props){
         search();
     }
     if (loaded){
-            return(
-            <div className="Dictionary">
-                <section>
-                    <h1>What word do you want to look up?</h1>
-                    <form onSubmit={handleSubmit}>
-                        <input type="search" onChange={handleKeywordChange} defaultValue={props.defaultKeyword}></input>
-                    </form>
-                    <small className="hint">i.e. sunset, aurora, plant, pond</small>
-                </section>
-                <Results results={results}/>
-            </div>
+        return(
+        <div className="Dictionary">
+            <section>
+                <form onSubmit={handleSubmit}>
+                    <input type="search" onChange={handleKeywordChange} placeholder="search for a word" ></input>
+                </form>
+                <small className="hint">i.e. forest, aurora, cascade, coding</small>
+            </section>
+            <Results results={results}/>
+            <Photos photos={photos}/>
+        </div>
         );
     }else{
         load();

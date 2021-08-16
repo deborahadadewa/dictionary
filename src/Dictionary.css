@@ -4,13 +4,12 @@
 }
 
 .Dictionary h1 {
-    font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
+    font-size: 44px;
+    line-height: 1.5;
 }
 
 .Dictionary section {
-    background: white;
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
@@ -21,13 +20,18 @@
     border-radius: 6px;
     border: 1px solid #ddd;
     color: #666666;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 21px;
     padding: 22px;
     width: 100%;
 }
 
 .Dictionary .hint {
-    margin-top: 15px;
+    color: #666666;
     display: block;
+    margin-top: 15px;
+}
+
+.Dictionary .example {
+    margin-top: 0;
 }
