@@ -7,8 +7,7 @@ export default function App() {
       <div className="container">
         <header className="App-header"> 
           <h1 className="title">dictionary</h1>
-                   <i className="fas fa-book-open App-logo"></i> 
-
+           <i className="fas fa-book-open App-logo"></i> 
         </header>
         <main>
           <Dictionary defaultKeyword="forest"/>

@@ -2,9 +2,11 @@
     margin: 20px 0 0;
 }
 
-.Phonetics a {
+.Phonetics a,
+button {
     border: 1px solid #D8C3A5;
     border-radius: 50px;
+    color: #e85a4f;
     font-size: 14px;
     margin-right: 10px;
     padding: 5px 15px;
