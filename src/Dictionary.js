@@ -4,7 +4,6 @@ import "./Dictionary.css";
 import Results from "./Results";
 import Photos from "./Photos";
 
-
 export default function Dictionary(props) {
   let [keyword, setKeyword] = useState(props.defaultKeyword);
   let [results, setResults] = useState(null);
@@ -17,9 +16,6 @@ export default function Dictionary(props) {
 
   function handlePhotosResponse(response) {
     setPhotos(response.data.photos);
-    console.log("PHOTO RZZZZ");
-    console.log(response.data.photos);
-
   }
 
   function search() {
@@ -27,11 +23,9 @@ export default function Dictionary(props) {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
     axios.get(apiUrl).then(handleDictionaryResponse);
 
-    let pexelsApiKey = `563492ad6f9170000100000147ea781985b948f4b99ee97577c6d470`;
-    let header = { Authorization: `Bearer ${pexelsApiKey}` };
-    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
-
-    axios.get(pexelsApiUrl, { headers: header }).then(handlePhotosResponse);
+    let pexelsApiKey = `4f48b6904cc4ce2dco4f6ba6af83tf00`;
+    let pexelsApiUrl = `https://api.shecodes.io/images/v1/search?query=${keyword}&key=${pexelsApiKey}`;
+    axios.get(pexelsApiUrl).then(handlePhotosResponse);
   }
 
   function handleSubmit(event) {
@@ -52,7 +46,11 @@ export default function Dictionary(props) {
       <div className="Dictionary">
         <section>
           <form onSubmit={handleSubmit}>
-            <input type="search" onChange={handleKeywordChange} placeholder="search for a word" ></input>
+            <input
+              type="search"
+              onChange={handleKeywordChange}
+              placeholder="search for a word"
+            ></input>
           </form>
           <small className="hint">i.e. forest, aurora, cascade, coding</small>
         </section>
@@ -62,6 +60,6 @@ export default function Dictionary(props) {
     );
   } else {
     load();
-    return "...loading"
+    return "...loading";
   }
 }

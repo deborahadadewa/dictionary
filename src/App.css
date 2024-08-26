@@ -1,20 +1,21 @@
 body {
-    font-family: proxima-soft, sans-serif;
-    background: #eae7dc;
+  font-family: proxima-soft, sans-serif;
+  background: #eae7dc;
 }
 
 a {
-    color: #e85a4f;
+  color: #e85a4f;
+  text-decoration: none;
 }
 
 .App {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 60px 0 100px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 60px 0 100px;
 }
 
 .App-header {
-    margin: 30px 0;
+  margin: 30px 0;
 }
 
 h1,
@@ -23,24 +24,24 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: coquette, sans-serif;
+  font-family: coquette, sans-serif;
 }
 
 .App-header h1 {
-    font-size: 64px;
-    font-weight: 700;
-    line-height: 0.70;
-    text-align: center;
-    text-transform: capitalize;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 0.7;
+  text-align: center;
+  text-transform: capitalize;
 }
 
 .App-logo {
-    display: block;
-    font-size: 40px;
-    text-align: center;
+  display: block;
+  font-size: 40px;
+  text-align: center;
 }
 
 .App-footer {
-    text-align: center;
-    margin: 30px 0;
+  text-align: center;
+  margin: 30px 0;
 }
