@@ -1,26 +1,27 @@
 .Synonyms {
-    margin: 0px 0 20px;
-    padding: 0;
+  margin: 0px 0 20px;
+  padding: 0;
+  background-color: #eec9ed;
 }
 
 .Synonyms li {
-    display: inline-block;
-    font-size: 13px;
-    padding-right: 10px;
+  display: inline-block;
+  font-size: 13px;
+  padding-right: 10px;
 }
 
 .Synonyms p {
-    display: inline-block;
-    font-size: 13px;
-    padding-right: 10px;
-    padding-top: 0;
+  display: inline-block;
+  font-size: 13px;
+  padding-right: 10px;
+  padding-top: 0;
 }
 
 .Synonyms h3 {
-    font-size: 34px;
-    font-weight: bold;
+  font-size: 34px;
+  font-weight: bold;
 }
 
 .Synonyms .description {
-    line-height: 10px;
+  line-height: 10px;
 }
